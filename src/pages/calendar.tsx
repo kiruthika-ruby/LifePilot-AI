@@ -13,7 +13,7 @@ import {
   Check,
 } from "lucide-react";
 import { supabase } from "../lib/supabase";
-import "./Calendar.css";
+import "./calendar.css";
 
 type ViewMode = "month" | "week" | "day";
 
@@ -68,19 +68,6 @@ const formatDateKey = (date: Date) => {
   const day = String(date.getDate()).padStart(2, "0");
 
   return `${year}-${month}-${day}`;
-};
-
-const parseDate = (dateString: string) => {
-  const [year, month, day] = dateString.split("-").map(Number);
-  return new Date(year, month - 1, day);
-};
-
-const formatDisplayDate = (dateString: string) => {
-  return parseDate(dateString).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
 };
 
 const getStartOfWeek = (date: Date) => {

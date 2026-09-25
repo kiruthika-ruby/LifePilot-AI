@@ -65,14 +65,7 @@ type ProductivityLog = {
   focus_hours: number | null;
 };
 
-const categoryColors = [
-  "#6366f1",
-  "#8b5cf6",
-  "#06b6d4",
-  "#22c55e",
-  "#f59e0b",
-  "#ef4444",
-];
+
 
 const getDayName = (date: Date) =>
   date.toLocaleDateString("en-US", { weekday: "short" });
@@ -91,7 +84,7 @@ function Analytics() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [goals, setGoals] = useState<Goal[]>([]);
   const [habits, setHabits] = useState<Habit[]>([]);
-  const [habitLogs, setHabitLogs] = useState<HabitLog[]>([]);
+  const [, setHabitLogs] = useState<HabitLog[]>([]);
   const [productivityLogs, setProductivityLogs] = useState<
     ProductivityLog[]
   >([]);
@@ -562,7 +555,7 @@ function Analytics() {
                   />
 
                   <Tooltip
-                    formatter={(value: number) => [
+                    formatter={(value: any) => [
                       `${value}%`,
                       "Productivity",
                     ]}
@@ -682,7 +675,7 @@ function Analytics() {
                     />
 
                     <Tooltip
-                      formatter={(value: number) => [
+                      formatter={(value: any) => [
                         `${value}%`,
                         "Consistency",
                       ]}
@@ -732,7 +725,7 @@ function Analytics() {
                   />
 
                   <Tooltip
-                    formatter={(value: number) => [
+                    formatter={(value: any) => [
                       `${value}h`,
                       "Estimated time",
                     ]}
